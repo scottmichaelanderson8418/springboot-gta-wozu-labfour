@@ -15,6 +15,14 @@ public class GreetingController {
 	private static final String template = "Greetings, %s!";
     private final AtomicLong counter = new AtomicLong(); // stateful counter...
 
+    
+    
+    @GetMapping("/")
+    @ResponseBody
+    public String sayHello() {
+        return "hello";
+    }
+    
     @GetMapping("/api/greetings/greeting")
     // Example: /api/greetings/greeting?name=john
     public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {   	
